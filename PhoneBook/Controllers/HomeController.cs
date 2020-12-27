@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PhoneBookData;
+using PhoneBookData.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +10,11 @@ namespace PhoneBook.Controllers
 {
     public class HomeController : Controller
     {
+        private List<Entry> data = DataManager.GetData();
         public ActionResult Index()
         {
-            return View();
+            return View(data);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook", "PhoneBook\PhoneBook.csproj", "{0FD15D3D-CF07-41EA-A3E6-D1D96144700C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBookData", "PhoneBookData\PhoneBookData.csproj", "{19C11A6C-F6F5-4E5C-B534-0A4BD45335B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0FD15D3D-CF07-41EA-A3E6-D1D96144700C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD15D3D-CF07-41EA-A3E6-D1D96144700C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD15D3D-CF07-41EA-A3E6-D1D96144700C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19C11A6C-F6F5-4E5C-B534-0A4BD45335B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C11A6C-F6F5-4E5C-B534-0A4BD45335B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C11A6C-F6F5-4E5C-B534-0A4BD45335B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C11A6C-F6F5-4E5C-B534-0A4BD45335B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
