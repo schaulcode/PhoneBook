@@ -10,9 +10,23 @@ namespace PhoneBook.Controllers
 {
     public class HomeController : Controller
     {
-        private List<Entry> data = DataManager.GetData();
+        private List<Entry> data = App_Start.Startup.data;
         public ActionResult Index()
         {
+            data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult Index(string delete)
+        {
+            data.Remove(data.Find(e => e.Name == delete));
+            data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult Index(string SearchField, int r)
+        {
+            data = data.FindAll(e => e.Name.StartsWith(SearchField) || e.Name.Split(' ')[1].StartsWith(SearchField));
             data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
             return View(data);
         }
