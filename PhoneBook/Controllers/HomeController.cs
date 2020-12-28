@@ -13,6 +13,7 @@ namespace PhoneBook.Controllers
         private List<Entry> data = DataManager.GetData();
         public ActionResult Index()
         {
+            data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
             return View(data);
         }
 
