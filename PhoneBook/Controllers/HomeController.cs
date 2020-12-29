@@ -24,12 +24,35 @@ namespace PhoneBook.Controllers
             return View(data);
         }
         [HttpPost]
-        public ActionResult Index(string SearchField, int r)
+        public ActionResult Index(string SearchField, Entry editEntry, string updateEntry)
         {
-            data = data.FindAll(e => e.Name.StartsWith(SearchField) || e.Name.Split(' ')[1].StartsWith(SearchField));
-            data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
-            return View(data);
+            if (SearchField != null)
+            {
+                data = data.FindAll(e => e.Name.StartsWith(SearchField) || e.Name.Split(' ')[1].StartsWith(SearchField));
+                data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
+                return View(data);
+            }
+            else
+            {
+                if (updateEntry != string.Empty)
+                {
+                    data[data.FindIndex(e => e.Name == updateEntry)] = editEntry;
+                    data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
+                    return View(data);
+                }
+                else
+                {
+                    data.Add(editEntry);
+                    data = data.OrderBy(e => e.Name.Split(' ')[1]).ToList();
+                    return View(data);
+
+                }
+                
+            }
+
+            
         }
+       
 
     }
 }

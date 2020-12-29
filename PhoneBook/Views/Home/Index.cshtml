@@ -5,7 +5,7 @@
 @Html.Partial("_Modal", new PhoneBookData.Model.Entry())
 @using (Html.BeginForm())
 {
-    <button class="btn btn-primary float-left">New</button>
+    <button id="new" class="btn btn-primary float-left">New</button>
     <div class="form-group float-right">
         @Html.TextBox("SearchField")
         <button name="submit" class="btn btn-secondary">Search</button>
@@ -24,9 +24,9 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Name</td>
-                    <td>@item.PhoneNumber</td>
-                    <td>@item.Address</td>
+                    <td id="1">@item.Name</td>
+                    <td id="2">@item.PhoneNumber</td>
+                    <td id="3">@item.Address</td>
                     <td>
                         <a class="edit" href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -51,7 +51,28 @@
     <script>
         $(".edit").click(function (e) {
             e.preventDefault();
+            var name = $(this).parent().siblings("#1").text()
+            var phoneNumber = $(this).parent().siblings("#2").text()
+            var address = $(this).parent().siblings("#3").text()
             $("#modal").modal("show")
+            $("#Name").val(name)
+            $("#PhoneNumber").val(phoneNumber)
+            $("#Address").val(address)
+            $("#updateEntry").val(name)
+            $("#save").click(function (e) {
+                e.preventDefault()
+                $("#modal-form").submit();
+            })  
+        })
+        $("#new").click(function (e) {
+            e.preventDefault();
+            
+            $("#modal").modal("show")
+           
+            $("#save").click(function (e) {
+                e.preventDefault()
+                $("#modal-form").submit();
+            })
         })
     </script>
 }

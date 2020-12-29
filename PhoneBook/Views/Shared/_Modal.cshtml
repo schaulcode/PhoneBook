@@ -23,6 +23,7 @@
                         @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "" })
                         @Html.TextBoxFor(model => model.Address, htmlAttributes: new { @class = "form-control" })
                     </div>
+                    @Html.Hidden("updateEntry")
                 }
             </div>
             <div class="modal-footer">
